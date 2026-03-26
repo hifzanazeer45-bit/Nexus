@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Profile - Business Nexus</title>
+    <link rel="icon" href="icon.png">
+    <link rel="stylesheet" href="css/profile.css">
+</head>
+<body>
+
+    <!-- NAVBAR -->
+    <nav class="navbar">
+        <!-- Logo -->
+        <div class="navbar-logo">
+            <div class="logo-icon">
+                <i class="fa-solid fa-briefcase"></i>
+            </div>
+            <div class="logo-text">Business Nexus</div>
+        </div>
+
+        <!-- Right Side -->
+        <div class="navbar-right">
+            <a href="dashboard.html" class="nav-link"><i class="fa-solid fa-dollar-sign"></i>Dashboard</a>
+            <a href="messages.html" class="nav-link"><i class="fa-solid fa-message"></i>Messages</a>
+            <a href="notification.html" class="nav-link"><i class="fa-solid fa-bell"></i>Notifications</a>
+            <a href="Profile.html" class="nav-link"><i class="fa-solid fa-user"></i>Profile</a>
+            <a href="index.html" class="nav-link"><i class="fa-solid fa-arrow-right-from-bracket"></i>Logout</a>
+
+            <!-- User Profile -->
+            <div class="user-profile">
+                <div class="user-avatar">MR</div>
+                <div class="user-name">Michael Rodriguez</div>
+            </div>
+        </div>
+    </nav>
+
+    <aside class="sidebar">
+        <!-- Main Menu -->
+        <div class="sidebar-section">
+            <div class="sidebar-section-label">Main Menu</div>
+            <a href="dashboard.html" class="sidebar-item"><i class="fa-solid fa-house"></i><span>Dashboard</span></a>
+            <a href="Profile.html" class="sidebar-item  active"><i class="fa-solid fa-briefcase"></i><span>My Portfole</span></a>
+            <a href="startups.html" class="sidebar-item"><i class="fa-solid fa-users"></i><span>Find Startups</span></a>
+            <a href="messages.html" class="sidebar-item"><i class="fa-solid fa-message"></i><span>Messages</span></a>
+            <a href="notification.html" class="sidebar-item"><i class="fa-solid fa-bell"></i><span>Notifications</span></a>
+            <a href="deals.html" class="sidebar-item"><i class="fa-solid fa-handshake"></i><span>Deals</span></a>
+            <a href="calendar.html" class="sidebar-item"><i class="fa-solid fa-calendar"></i><span>Calendar</span></a>
+            <a href="documents.html" class="sidebar-item"><i class="fa-solid fa-file"></i><span>Documents</span></a>
+            <a href="video-calling.html" class="sidebar-item"><i class="fa-solid fa-video"></i><span>Video Call</span></a>
+        </div>
+
+         <!-- Account Settings -->
+        <div class="sidebar-section">
+            <div class="sidebar-section-label">Account</div>
+            <a href="Payments.html" class="sidebar-item"><i class="fa-solid fa-credit-card"></i><span>Payments</span></a>
+            <a href="security.html" class="sidebar-item"><i class="fa-solid fa-shield-halved"></i><span>Security</span></a>
+            <a href="settings.html" class="sidebar-item"><i class="fa-solid fa-gear"></i><span>Settings</span></a>
+        </div>
+    </aside>
+
+    <!-- MAIN CONTENT -->
+    <main class="page-content">
+
+        <!-- Profile Banner -->
+        <div class="profile-banner">
+            <div class="banner-body">
+                <div class="avatar-wrap">
+                    <div class="profile-avatar">MR</div>
+                    <span class="online-dot"></span>
+                </div>
+                <div class="banner-info">
+                    <div class="profile-name">Michael Rodriguez</div>
+                    <div class="profile-meta">
+                        <span><i class="fa-solid fa-building"></i> Investor · VC Innovate</span>
+                        <span><i class="fa-solid fa-location-dot"></i> San Francisco, CA</span>
+                        <span><i class="fa-solid fa-layer-group"></i> 12 investments</span>
+                    </div>
+                    <div class="profile-tags">
+                        <span class="tag teal">Seed</span>
+                        <span class="tag teal">Series A</span>
+                        <span class="tag blue">FinTech</span>
+                        <span class="tag blue">SaaS</span>
+                        <span class="tag blue">AI/ML</span>
+                    </div>
+                </div>
+                <button class="edit-btn"><i class="fa-solid fa-pen"></i> Edit Profile</button>
+            </div>
+        </div>
+
+        <!-- Two Column -->
+        <div class="profile-cols">
+
+            <!-- LEFT COLUMN -->
+            <div class="profile-left">
+
+                <div class="card">
+                    <div class="card-header"><h2>About</h2></div>
+                    <div class="card-body">
+                        <p class="about-text">
+                            Early-stage investor with a focus on B2B SaaS and fintech. Previously founded and exited two startups, bringing operator experience alongside capital. Passionate about backing mission-driven founders who are solving real problems at scale.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Investment Interests -->
+                <div class="card">
+                    <div class="card-header"><h2>Investment Interests</h2></div>
+                    <div class="card-body">
+
+                        <div class="interest-block">
+                            <div class="interest-label">Industries</div>
+                            <div class="tag-row">
+                                <span class="tag blue">FinTech</span>
+                                <span class="tag blue">SaaS</span>
+                                <span class="tag blue">AI/ML</span>
+                                <span class="tag blue">HealthTech</span>
+                                <span class="tag blue">CleanTech</span>
+                            </div>
+                        </div>
+
+                        <div class="interest-block">
+                            <div class="interest-label">Investment Stages</div>
+                            <div class="tag-row">
+                                <span class="tag teal">Seed</span>
+                                <span class="tag teal">Series A</span>
+                            </div>
+                        </div>
+
+                        <div class="interest-block">
+                            <div class="interest-label">Investment Criteria</div>
+                            <ul class="criteria-list">
+                                <li>Strong founding team with domain expertise</li>
+                                <li>Clear market opportunity and product-market fit</li>
+                                <li>Scalable business model with strong unit economics</li>
+                                <li>Potential for significant growth and market impact</li>
+                            </ul>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- Portfolio Companies -->
+                <div class="card">
+                    <div class="card-header">
+                        <h2>Portfolio Companies</h2>
+                        <span class="header-count">3 companies</span>
+                    </div>
+                    <div class="card-body">
+                        <div class="portfolio-grid">
+                            <div class="portfolio-item">
+                                <div class="portfolio-icon"><i class="fa-solid fa-briefcase"></i></div>
+                                <div>
+                                    <div class="portfolio-name">PayStream</div>
+                                    <div class="portfolio-sub">Invested in 2022</div>
+                                </div>
+                            </div>
+                            <div class="portfolio-item">
+                                <div class="portfolio-icon"><i class="fa-solid fa-briefcase"></i></div>
+                                <div>
+                                    <div class="portfolio-name">DataSense</div>
+                                    <div class="portfolio-sub">Invested in 2022</div>
+                                </div>
+                            </div>
+                            <div class="portfolio-item">
+                                <div class="portfolio-icon"><i class="fa-solid fa-briefcase"></i></div>
+                                <div>
+                                    <div class="portfolio-name">CloudSecure</div>
+                                    <div class="portfolio-sub">Invested in 2023</div>
+                                </div>
+                            </div>
+                            <div class="portfolio-item">
+                                <div class="portfolio-icon"><i class="fa-solid fa-briefcase"></i></div>
+                                <div>
+                                    <div class="portfolio-name">GreenAI</div>
+                                    <div class="portfolio-sub">Invested in 2024</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- RIGHT COLUMN -->
+            <div class="profile-right">
+
+                <!-- Investment Details -->
+                <div class="card">
+                    <div class="card-header"><h2>Investment Details</h2></div>
+                    <div class="card-body">
+                        <div class="detail-row">
+                            <div class="detail-label">Investment Range</div>
+                            <div class="detail-value big">$250K – $1.5M</div>
+                        </div>
+                        <div class="detail-row">
+                            <div class="detail-label">Total Investments</div>
+                            <div class="detail-value">12 companies</div>
+                        </div>
+                        <div class="detail-row">
+                            <div class="detail-label">Typical Timeline</div>
+                            <div class="detail-value">3 – 5 years</div>
+                        </div>
+                        <div class="detail-row" style="border-bottom:none;padding-bottom:0">
+                            <div class="detail-label" style="margin-bottom:12px">Investment Focus</div>
+                            <div class="focus-bars">
+                                <div class="focus-row">
+                                    <span class="focus-name">SaaS & B2B</span>
+                                    <div class="bar-track"><div class="bar-fill" style="width:80%"></div></div>
+                                </div>
+                                <div class="focus-row">
+                                    <span class="focus-name">FinTech</span>
+                                    <div class="bar-track"><div class="bar-fill" style="width:65%"></div></div>
+                                </div>
+                                <div class="focus-row">
+                                    <span class="focus-name">HealthTech</span>
+                                    <div class="bar-track"><div class="bar-fill" style="width:40%"></div></div>
+                                </div>
+                                <div class="focus-row">
+                                    <span class="focus-name">CleanTech</span>
+                                    <div class="bar-track"><div class="bar-fill" style="width:25%"></div></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Investment Stats -->
+                <div class="card">
+                    <div class="card-header"><h2>Investment Stats</h2></div>
+                    <div class="card-body" style="padding-top:12px">
+                        <div class="stat-box">
+                            <div>
+                                <div class="stat-box-label">Successful Exits</div>
+                                <div class="stat-box-val">4</div>
+                            </div>
+                            <i class="fa-solid fa-chart-column stat-box-icon"></i>
+                        </div>
+                        <div class="stat-box">
+                            <div>
+                                <div class="stat-box-label">Avg. ROI</div>
+                                <div class="stat-box-val blue">3.2x</div>
+                            </div>
+                            <i class="fa-solid fa-chart-column stat-box-icon"></i>
+                        </div>
+                        <div class="stat-box" style="margin-bottom:0">
+                            <div>
+                                <div class="stat-box-label">Active Investments</div>
+                                <div class="stat-box-val">3</div>
+                            </div>
+                            <i class="fa-solid fa-chart-column stat-box-icon"></i>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+    </main>
+
+</body>
+</html>

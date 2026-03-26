@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Security - Business Nexus</title>
+    <link rel="icon" href="icon.png">
+    <link rel="stylesheet" href="css/Security.css">
+</head>
+<body>
+
+    <nav class="navbar">
+        <!-- Logo -->
+        <div class="navbar-logo">
+            <div class="logo-icon">
+                <i class="fa-solid fa-briefcase"></i>
+            </div>
+            <div class="logo-text">Business Nexus</div>
+        </div>
+
+        <!-- Right Side -->
+        <div class="navbar-right">
+            <a href="dashboard.html" class="nav-link"><i class="fa-solid fa-dollar-sign"></i>Dashboard</a>
+            <a href="messages.html" class="nav-link"><i class="fa-solid fa-message"></i>Messages</a>
+            <a href="notification.html" class="nav-link"><i class="fa-solid fa-bell"></i>Notifications</a>
+            <a href="Profile.html" class="nav-link"><i class="fa-solid fa-user"></i>Profile</a>
+            <a href="index.html" class="nav-link"><i class="fa-solid fa-arrow-right-from-bracket"></i>Logout</a>
+
+            <!-- User Profile -->
+            <div class="user-profile">
+                <div class="user-avatar">MR</div>
+                <div class="user-name">Michael Rodriguez</div>
+            </div>
+        </div>
+    </nav>
+
+    <aside class="sidebar">
+        <!-- Main Menu -->
+        <div class="sidebar-section">
+            <div class="sidebar-section-label">Main Menu</div>
+            <a href="dashboard.html" class="sidebar-item"><i class="fa-solid fa-house"></i><span>Dashboard</span></a>
+            <a href="Profile.html" class="sidebar-item"><i class="fa-solid fa-briefcase"></i><span>My Portfole</span></a>
+            <a href="startups.html" class="sidebar-item"><i class="fa-solid fa-users"></i><span>Find Startups</span></a>
+            <a href="messages.html" class="sidebar-item"><i class="fa-solid fa-message"></i><span>Messages</span></a>
+            <a href="notification.html" class="sidebar-item"><i class="fa-solid fa-bell"></i><span>Notifications</span></a>
+            <a href="deals.html" class="sidebar-item"><i class="fa-solid fa-handshake"></i><span>Deals</span></a>
+            <a href="calendar.html" class="sidebar-item"><i class="fa-solid fa-calendar"></i><span>Calendar</span></a>
+            <a href="documents.html" class="sidebar-item"><i class="fa-solid fa-file"></i><span>Documents</span></a>
+            <a href="video-calling.html" class="sidebar-item"><i class="fa-solid fa-video"></i><span>Video Call</span></a>
+        </div>
+
+         <!-- Account Settings -->
+        <div class="sidebar-section">
+            <div class="sidebar-section-label">Account</div>
+            <a href="Payments.html" class="sidebar-item"><i class="fa-solid fa-credit-card"></i><span>Payments</span></a>
+            <a href="security.html" class="sidebar-item active"><i class="fa-solid fa-shield-halved"></i><span>Security</span></a>
+            <a href="settings.html" class="sidebar-item"><i class="fa-solid fa-gear"></i><span>Settings</span></a>
+        </div>
+    </aside>
+
+    <main class="page-content">
+
+        <div class="page-header">
+            <div class="section-title">🔐 Security & Access Control</div>
+        </div>
+
+        <!-- TAB BUTTONS -->
+        <div class="tabs" id="sec-tabs">
+            <button class="tab-btn active" data-tab="sec-password">🔑 Password</button>
+            <button class="tab-btn" data-tab="sec-2fa">📱 Two-Factor Auth</button>
+            <button class="tab-btn" data-tab="sec-sessions">🖥 Active Sessions</button>
+            <button class="tab-btn" data-tab="sec-roles">🛡 Role Permissions</button>
+        </div>
+
+        <!-- PASSWORD TAB -->
+        <div class="tab-content active" id="sec-password">
+            <div class="grid-2">
+
+                <div class="card">
+                    <div class="card-header"><h2>Change Password</h2></div>
+                    <div class="card-body">
+                        <div class="form-group">
+                            <label class="form-label">Current Password</label>
+                            <input class="form-input" id="cur-pw" type="password" placeholder="••••••••" autocomplete="current-password"/>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">New Password</label>
+                            <input class="form-input" id="new-pw" type="password" placeholder="Min 8 characters" oninput="onNewPw(this.value)" autocomplete="new-password"/>
+                            <div style="margin-top:12px;display:flex;flex-direction:column;gap:6px">
+                                <div id="chk-len"   style="font-size:12px;color:#9CA3AF">⬜ At least 8 characters</div>
+                                <div id="chk-upper" style="font-size:12px;color:#9CA3AF">⬜ One uppercase letter</div>
+                                <div id="chk-num"   style="font-size:12px;color:#9CA3AF">⬜ One number or symbol</div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Confirm New Password</label>
+                            <input class="form-input" id="conf-pw" type="password" placeholder="Repeat new password" autocomplete="new-password"/>
+                        </div>
+                        <button class="btn" onclick="changePassword()">Update Password</button>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-header"><h2>Password Tips</h2></div>
+                    <div class="card-body">
+                        <div style="display:flex;flex-direction:column;gap:10px;font-size:13px">
+                            <div style="color:#16A34A">✅ Use at least 12 characters</div>
+                            <div style="color:#16A34A">✅ Mix uppercase, numbers & symbols</div>
+                            <div style="color:#16A34A">✅ Use a password manager</div>
+                            <div style="color:#16A34A">✅ Use a unique password for each site</div>
+                            <div style="color:#DC2626">❌ Don't reuse old passwords</div>
+                            <div style="color:#DC2626">❌ Never share your password</div>
+                            <div style="color:#DC2626">❌ Avoid keyboard patterns (qwerty)</div>
+                            <div style="color:#DC2626">❌ Don't use your name or birthday</div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- 2FA TAB -->
+        <div class="tab-content" id="sec-2fa">
+            <div style="max-width:480px">
+
+                <div class="card" style="margin-bottom:16px">
+                    <div class="card-header"><h2>Authenticator App</h2></div>
+                    <div class="card-body">
+                        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:20px">
+                            <div>
+                                <div style="font-weight:600;font-size:14px">Google Authenticator / Authy</div>
+                                <div style="font-size:12px;color:#6B7280;margin-top:2px">Scan QR code with your auth app</div>
+                            </div>
+                            <div style="display:flex;align-items:center;gap:10px">
+                                <span class="badge badge-danger" id="twofa-status">Disabled</span>
+                                <button class="toggle" id="toggle-2fa" onclick="toggle2FA()"></button>
+                            </div>
+                        </div>
+
+                        <div id="twofa-setup" class="hidden">
+                            <div class="qr-section">
+                                <div class="qr-box"><i class="fa-solid fa-qrcode"></i></div>
+                                <p style="font-size:13px;color:#4B5563;margin-bottom:6px"><strong>Scan this QR code</strong> with your authenticator app</p>
+                                <p style="font-size:11px;color:#9CA3AF;font-family:monospace">Manual key: NEXS-8821-XKQP-0047</p>
+                            </div>
+                            <p style="font-size:13px;color:#4B5563;margin-bottom:12px">Enter the 6-digit code from your app to verify:</p>
+                            <div class="otp-group" id="twofa-otp" style="margin-bottom:16px">
+                                <input class="otp-box" maxlength="1" type="text" inputmode="numeric"/>
+                                <input class="otp-box" maxlength="1" type="text" inputmode="numeric"/>
+                                <input class="otp-box" maxlength="1" type="text" inputmode="numeric"/>
+                                <input class="otp-box" maxlength="1" type="text" inputmode="numeric"/>
+                                <input class="otp-box" maxlength="1" type="text" inputmode="numeric"/>
+                                <input class="otp-box" maxlength="1" type="text" inputmode="numeric"/>
+                            </div>
+                            <button class="btn btn-success btn-full" onclick="verify2FA()">✓ Verify & Enable 2FA</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-header"><h2>Login Alerts</h2></div>
+                    <div class="card-body" style="display:flex;flex-direction:column;gap:16px">
+                        <div class="toggle-wrap">
+                            <button class="toggle on" id="toggle-email-alert" onclick="this.classList.toggle('on')"></button>
+                            <span class="toggle-label">Email me on new login from unknown device</span>
+                        </div>
+                        <div class="toggle-wrap">
+                            <button class="toggle" id="toggle-sms-alert" onclick="this.classList.toggle('on')"></button>
+                            <span class="toggle-label">SMS alert on suspicious login attempt</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- SESSIONS TAB -->
+        <div class="tab-content" id="sec-sessions">
+            <div class="card">
+                <div class="card-header">
+                    <h2>Active Sessions</h2>
+                    <button class="btn btn-danger btn-sm" onclick="revokeAll()">End All Other Sessions</button>
+                </div>
+                <div class="card-body" id="sessions-list"></div>
+            </div>
+        </div>
+
+        <!-- ROLES TAB -->
+        <div class="tab-content" id="sec-roles">
+            <div class="card">
+                <div class="card-header"><h2>Role-Based Access Control</h2></div>
+                <div class="card-body">
+                    <p style="font-size:13px;color:#6B7280;margin-bottom:20px">Different features are available depending on your account role.</p>
+                    <div class="grid-2">
+
+                        <div class="role-card investor">
+                            <div style="font-size:16px;font-weight:700;margin-bottom:14px">💼 Investor Access</div>
+                            <div class="role-item"><span style="color:#16a34a">✓</span> View deal flow & pipeline</div>
+                            <div class="role-item"><span style="color:#16a34a">✓</span> Fund startups & entrepreneurs</div>
+                            <div class="role-item"><span style="color:#16a34a">✓</span> Schedule & confirm meetings</div>
+                            <div class="role-item"><span style="color:#16a34a">✓</span> Sign term sheets & agreements</div>
+                            <div class="role-item"><span style="color:#16a34a">✓</span> View portfolio analytics</div>
+                            <div class="role-item"><span style="color:#16a34a">✓</span> Video calls with entrepreneurs</div>
+                            <div class="role-item"><span style="color:#16a34a">✓</span> Document access & preview</div>
+                            <div class="role-item"><span style="color:#16a34a">✓</span> Wallet & payment management</div>
+                        </div>
+
+                        <div class="role-card entrepreneur">
+                            <div style="font-size:16px;font-weight:700;margin-bottom:14px">🚀 Entrepreneur Access</div>
+                            <div class="role-item"><span style="color:#0d9488">✓</span> Create & share pitch deck</div>
+                            <div class="role-item"><span style="color:#0d9488">✓</span> Request funding from investors</div>
+                            <div class="role-item"><span style="color:#0d9488">✓</span> Schedule & confirm meetings</div>
+                            <div class="role-item"><span style="color:#0d9488">✓</span> Sign investment agreements</div>
+                            <div class="role-item"><span style="color:#0d9488">✓</span> View funding progress & metrics</div>
+                            <div class="role-item"><span style="color:#0d9488">✓</span> Video calls with investors</div>
+                            <div class="role-item"><span style="color:#0d9488">✓</span> Document uploads & management</div>
+                            <div class="role-item"><span style="color:#0d9488">✓</span> Wallet & payment tracking</div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- Toast notification -->
+    <div id="toast-container"></div>
+
+    <script>
+
+        // to grab every tab button on the page
+        var tabButtons = document.querySelectorAll('.tab-btn');
+
+        // Loop through each button and add a click listener
+        for (var i = 0; i < tabButtons.length; i++) {
+            tabButtons[i].addEventListener('click', function() {
+
+                for (var j = 0; j < tabButtons.length; j++) {
+                    tabButtons[j].classList.remove('active');
+                }
+
+                this.classList.add('active');
+
+                var targetId = this.getAttribute('data-tab');
+
+                var allPanels = document.querySelectorAll('.tab-content');
+                for (var k = 0; k < allPanels.length; k++) {
+                    allPanels[k].classList.remove('active');
+                }
+
+                document.getElementById(targetId).classList.add('active');
+            });
+        }
+
+
+        function getOtpCode() {
+            var code = '';
+            for (var i = 0; i < otpBoxes.length; i++) {
+                code += otpBoxes[i].value;
+            }
+            return code;
+        }
+
+
+        function showToast(message, type) {
+            var container = document.getElementById('toast-container');
+            var toast = document.createElement('div');
+            toast.className = 'toast ' + (type || '');
+            toast.textContent = message;
+            container.appendChild(toast);
+
+            // Remove the toast after 3 seconds
+            setTimeout(function() {
+                toast.remove();
+            }, 3000);
+        }
+
+
+        // Password checklist
+        function onNewPw(value) {
+            updateCheck('chk-len',   value.length >= 8,           'At least 8 characters');
+            updateCheck('chk-upper', /[A-Z]/.test(value),         'One uppercase letter');
+            updateCheck('chk-num',   /[0-9!@#$%^&*]/.test(value), 'One number or symbol');
+        }
+
+        function updateCheck(id, passed, text) {
+            var el = document.getElementById(id);
+            el.textContent = (passed ? '✅ ' : '⬜ ') + text;
+            el.style.color  = passed ? '#16a34a' : '#9ca3af';
+        }
+
+        // Change pasword button
+        function changePassword() {
+            var current  = document.getElementById('cur-pw').value;
+            var newPw    = document.getElementById('new-pw').value;
+            var confirm  = document.getElementById('conf-pw').value;
+
+            if (!current || !newPw)    { showToast('Please fill in all fields', 'error'); return; }
+            if (newPw !== confirm)     { showToast('Passwords do not match', 'error'); return; }
+            if (newPw.length < 6)      { showToast('Password too short', 'error'); return; }
+
+            showToast('Password updated successfully! 🔒', 'success');
+
+            // Clear all fields
+            document.getElementById('cur-pw').value  = '';
+            document.getElementById('new-pw').value  = '';
+            document.getElementById('conf-pw').value = '';
+        }
+
+
+        /* 2FA TOGGLE */
+        function toggle2FA() {
+            var btn    = document.getElementById('toggle-2fa');
+            var setup  = document.getElementById('twofa-setup');
+            var status = document.getElementById('twofa-status');
+
+            btn.classList.toggle('on');
+            var isOn = btn.classList.contains('on');
+
+            if (isOn) {
+                setup.classList.remove('hidden');
+                status.textContent  = 'Pending Setup';
+                status.className    = 'badge badge-warning';
+            } else {
+                setup.classList.add('hidden');
+                status.textContent  = 'Disabled';
+                status.className    = 'badge badge-danger';
+            }
+        }
+
+        function verify2FA() {
+            var code = getOtpCode();
+            if (code.length < 6) {
+                showToast('Enter the full 6-digit code', 'error');
+                return;
+            }
+            var status = document.getElementById('twofa-status');
+            status.textContent = 'Enabled';
+            status.className   = 'badge badge-success';
+            document.getElementById('twofa-setup').classList.add('hidden');
+            showToast('Two-Factor Authentication enabled! ✅', 'success');
+        }
+
+
+        /* SESSIONS */
+        var sessions = [
+            { device: 'Chrome on Windows 11', loc: 'Lahore, PK',  time: 'Active now',  icon: '🌐', current: true  },
+            { device: 'Safari on iPhone 15',  loc: 'Lahore, PK',  time: '2 hours ago', icon: '📱', current: false },
+            { device: 'Firefox on macOS',     loc: 'Karachi, PK', time: 'Yesterday',   icon: '🦊', current: false },
+        ];
+
+        function renderSessions() {
+            var html = '';
+            for (var i = 0; i < sessions.length; i++) {
+                var s = sessions[i];
+                var borderStyle = (i < sessions.length - 1) ? 'border-bottom:1px solid #f3f4f6' : '';
+
+                html += '<div style="display:flex;align-items:center;gap:14px;padding:16px 0;' + borderStyle + '">';
+                html += '<span style="font-size:28px">' + s.icon + '</span>';
+                html += '<div style="flex:1">';
+                html += '<div style="font-weight:600;font-size:14px">' + s.device + '</div>';
+                html += '<div style="font-size:12px;color:#6B7280;margin-top:3px">' + s.loc + ' · ' + s.time + '</div>';
+                html += '</div>';
+
+                if (s.current) {
+                    html += '<span class="badge badge-success">● Current Session</span>';
+                } else {
+                    html += '<button class="btn btn-danger btn-sm revoke-btn" onclick="revokeSession(this)">Revoke</button>';
+                }
+
+                html += '</div>';
+            }
+            document.getElementById('sessions-list').innerHTML = html;
+        }
+
+        function revokeSession(button) {
+            button.textContent  = 'Revoked';
+            button.disabled     = true;
+            button.style.background = '#9ca3af';
+            button.style.borderColor = '#9ca3af';
+            showToast('Session revoked', 'success');
+        }
+
+        function revokeAll() {
+            var buttons = document.querySelectorAll('.revoke-btn');
+            for (var i = 0; i < buttons.length; i++) {
+                buttons[i].textContent  = 'Revoked';
+                buttons[i].disabled     = true;
+                buttons[i].style.background  = '#9ca3af';
+                buttons[i].style.borderColor = '#9ca3af';
+            }
+            showToast('All other sessions ended', 'success');
+        }
+
+        renderSessions();
+
+    </script>
+</body>
+</html>

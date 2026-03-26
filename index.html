@@ -1,14 +1,135 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/logo.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Business Nexus - Connect Entrepreneurs & Investors</title>
-    <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
-  </body>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Business Nexus</title>
+    <link rel="icon" href="icon.png">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="login-container">
+        <!-- Logo -->
+        <div class="logo">
+            <h1>Sign in to Business Nexus</h1>
+            <p>Connect with Investor and Entrepreneur</p>
+        </div>
+
+        <!-- Investor and Entrepreneur section -->
+        <div class="user-type-label">I am a</div>
+        <div class="user-type-buttons">
+            <button class="user-type-btn active" data-role="entrepreneur" onclick="selectUserType(this)">
+                <i class="fa-solid fa-briefcase"></i>
+                Entrepreneur
+            </button>
+            <button class="user-type-btn" data-role="investor" onclick="selectUserType(this)">
+                <i class="fa-solid fa-hand-holding-dollar"></i>
+                Investor
+            </button>
+        </div>
+
+        <!-- Email Input -->
+        <div class="form-group">
+            <label class="form-label">Email Address</label>
+            <div class="input-wrapper">
+                <input id="login-email" class="form-input" type="email" placeholder="nexus@.com">
+            </div>
+        </div>
+
+        <!-- Password Input -->
+        <div class="form-group">
+            <label class="form-label">Password</label>
+            <div class="input-wrapper">
+                <input id="login-pass" class="form-input" type="password" placeholder="••••••••">
+            </div>
+        </div>
+
+        <!-- Sign In Button -->
+        <button class="sign-in-btn" onclick="handleLogin()">
+            <i class="fa-solid fa-arrow-right-to-bracket"></i>
+            Sign In
+        </button>
+
+        <!-- Demo Accounts -->
+        <div class="demo-section">
+            <div class="demo-title">
+                <div class="line"></div>
+                <h5>Demo Accounts</h5>
+                <div class="line"></div>
+            </div>
+            <div class="demo-buttons">
+                <button class="demo-btn" data-role="entrepreneur" onclick="fillDemo('entrepreneur')">
+                    <i class="fa-solid fa-briefcase"></i>
+                    Entrepreneur Demo
+                </button>
+                <button class="demo-btn" data-role="investor" onclick="fillDemo('investor')">
+                    <i class="fa-solid fa-hand-holding-dollar"></i>
+                    Investor <br> Demo
+                </button>
+            </div>
+        </div>
+
+        <!-- Sign Up Link -->
+        <div class="signup-link">
+            Don't have an account? <a href="#">Sign up</a>
+        </div>
+    </div>
+
+    <script src="core.js"></script>
+    <script>
+        let selectedRole = 'entrepreneur';
+
+        function selectUserType(button) {
+            document.querySelectorAll('.user-type-btn').forEach(btn => {
+                btn.classList.remove('active')
+            });
+            button.classList.add('active');
+            selectedRole = button.dataset.role;
+        }
+
+        function fillDemo(role) {
+            selectedRole = role;
+            document.querySelectorAll('.user-type-btn').forEach(b => {
+            b.classList.toggle('active', b.dataset.role === role);
+            });
+            if (role === 'entrepreneur') {
+                document.getElementById('login-email').value = 'sarah@techwave.io';
+                document.getElementById('login-pass').value  = 'password123';
+            } else {
+                document.getElementById('login-email').value = 'michael@vcinnovate.com';
+                document.getElementById('login-pass').value  = 'password123';
+            }
+
+            localStorage.setItem('nexus_user', JSON.stringify(found));
+            App.user = found;
+        }
+
+        function handleLogin(){
+            const email = document.getElementById('login-email').value.trim();
+            const pass  = document.getElementById('login-pass').value;
+
+            if (!email || !pass) {
+                alert("Please fill in all fields")
+                return;
+            }
+
+            const found = MOCK_USERS.find(u => u.email === email && u.password === pass && u.role === selectedRole);
+
+            if (!found) {
+                alert("Invalid email, password, or role. Try a demo account!")
+                return;
+            }
+
+            alert("Login successful! Welcome " + found.name);
+
+            localStorage.setItem('nexus_user', JSON.stringify(found));
+            App.user = found;
+
+            window.location.href = 'dashboard.html';
+        }
+
+        
+    </script>
+</body>
 </html>

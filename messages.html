@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Messages - Business Nexus</title>
+    <link rel="icon" href="icon.png">
+    <link rel="stylesheet" href="css/Messages.css">
+</head>
+<body>
+
+    <!-- NAVBAR -->
+    <nav class="navbar">
+        <div class="navbar-logo">
+            <div class="logo-icon"><i class="fa-solid fa-briefcase"></i></div>
+            <div class="logo-text">Business Nexus</div>
+        </div>
+        <div class="navbar-right">
+            <a href="dashboard.html" class="nav-link"><i class="fa-solid fa-dollar-sign"></i>Dashboard</a>
+            <a href="messages.html" class="nav-link"><i class="fa-solid fa-message"></i>Messages</a>
+            <a href="notification.html" class="nav-link"><i class="fa-solid fa-bell"></i>Notifications</a>
+            <a href="Profile.html" class="nav-link"><i class="fa-solid fa-user"></i>Profile</a>
+            <a href="index.html" class="nav-link"><i class="fa-solid fa-arrow-right-from-bracket"></i>Logout</a>
+            <div class="user-profile">
+                <div class="user-avatar">MR</div>
+                <div class="user-name">Michael Rodriguez</div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+        <div class="sidebar-section">
+            <div class="sidebar-section-label">Main Menu</div>
+            <a href="dashboard.html" class="sidebar-item"><i class="fa-solid fa-house"></i><span>Dashboard</span></a>
+            <a href="Profile.html" class="sidebar-item"><i class="fa-solid fa-briefcase"></i><span>My Portfole</span></a>
+            <a href="startups.html" class="sidebar-item"><i class="fa-solid fa-users"></i><span>Find Startups</span></a>
+            <a href="messages.html" class="sidebar-item active"><i class="fa-solid fa-message"></i><span>Messages</span></a>
+            <a href="notification.html" class="sidebar-item"><i class="fa-solid fa-bell"></i><span>Notifications</span></a>
+            <a href="deals.html" class="sidebar-item"><i class="fa-solid fa-handshake"></i><span>Deals</span></a>
+            <a href="calendar.html" class="sidebar-item"><i class="fa-solid fa-calendar"></i><span>Calendar</span></a>
+            <a href="documents.html" class="sidebar-item"><i class="fa-solid fa-file"></i><span>Documents</span></a>
+            <a href="video-calling.html" class="sidebar-item"><i class="fa-solid fa-video"></i><span>Video Call</span></a>
+        </div>
+        <div class="sidebar-section">
+            <div class="sidebar-section-label">Account</div>
+            <a href="Payments.html" class="sidebar-item"><i class="fa-solid fa-credit-card"></i><span>Payments</span></a>
+            <a href="security.html" class="sidebar-item"><i class="fa-solid fa-shield-halved"></i><span>Security</span></a>
+            <a href="settings.html" class="sidebar-item"><i class="fa-solid fa-gear"></i><span>Settings</span></a>
+        </div>
+    </aside>
+
+    <!-- MAIN CONTENT -->
+    <main class="page-content">
+        <div class="chat-shell">
+
+            <!-- LEFT side Contacts list -->
+            <div class="contacts-panel">
+                <div class="contacts-header">
+                    <h2>Messages</h2>
+                    <button class="new-msg-btn"><i class="fa-solid fa-pen-to-square"></i></button>
+                </div>
+                <div class="contacts-search">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                    <input type="text" placeholder="Search conversations...">
+                </div>
+
+                <div class="contacts-list">
+
+                    <!-- Active contact -->
+                    <div class="contact-row active" onclick="switchChat('alex')">
+                        <div class="contact-avatar teal">AM</div>
+                        <div class="contact-info">
+                            <div class="contact-top">
+                                <span class="contact-name">Alex Morgan</span>
+                                <span class="contact-time">2m ago</span>
+                            </div>
+                            <div class="contact-preview">Sounds great! Looking forwar...</div>
+                        </div>
+                    </div>
+
+                    <div class="contact-row" onclick="switchChat('priya')">
+                        <div class="contact-avatar green">PK</div>
+                        <div class="contact-info">
+                            <div class="contact-top">
+                                <span class="contact-name">Priya Kapoor</span>
+                                <span class="contact-time">1h ago</span>
+                            </div>
+                            <div class="contact-preview">Can you share the pitch deck?</div>
+                        </div>
+                    </div>
+
+                    <div class="contact-row" onclick="switchChat('james')">
+                        <div class="contact-avatar blue">JL</div>
+                        <div class="contact-info">
+                            <div class="contact-top">
+                                <span class="contact-name">James Liu</span>
+                                <span class="contact-time">3h ago</span>
+                            </div>
+                            <div class="contact-preview">The term sheet looks good to...</div>
+                        </div>
+                        <div class="unread-badge">1</div>
+                    </div>
+
+                    <div class="contact-row" onclick="switchChat('sara')">
+                        <div class="contact-avatar purple">SC</div>
+                        <div class="contact-info">
+                            <div class="contact-top">
+                                <span class="contact-name">Sara Chen</span>
+                                <span class="contact-time">Yesterday</span>
+                            </div>
+                            <div class="contact-preview">We are ready to move to the ...</div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+             <!-- right side chat windo -->
+            <div class="chat-panel">
+
+                <!-- Chat header -->
+                <div class="chat-header">
+                    <div class="chat-header-left">
+                        <div class="contact-avatar teal" id="chat-avatar">AM</div>
+                        <div>
+                            <div class="chat-name" id="chat-name">Alex Morgan</div>
+                            <div class="chat-status" id="chat-status">
+                                <span class="online-dot"></span> Online · Entrepreneur
+                            </div>
+                        </div>
+                    </div>
+                    <div class="chat-header-actions">
+                        <a href="video-calling.html" class="chat-action-btn">
+                            <i class="fa-solid fa-video"></i> Video Call
+                        </a>
+                        <a href="calendar.html" class="chat-action-btn">
+                            <i class="fa-regular fa-calendar"></i> Schedule
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Messages area -->
+                <div class="messages-area" id="messages-area">
+
+                    <!-- Received message -->
+                    <div class="msg-row received">
+                        <div class="msg-bubble received">
+                            Hi! I saw your profile on BizNexus. Your startup looks very promising!
+                        </div>
+                        <div class="msg-time">10:00 AM</div>
+                    </div>
+
+                    <!-- Sent message -->
+                    <div class="msg-row sent">
+                        <div class="msg-bubble sent">
+                            Thank you! We are looking for Series A funding. Would love to connect.
+                        </div>
+                        <div class="msg-time">10:05 AM</div>
+                    </div>
+
+                    <!-- Received -->
+                    <div class="msg-row received">
+                        <div class="msg-bubble received">
+                            Absolutely. Can we schedule a video call this week?
+                        </div>
+                        <div class="msg-time">10:08 AM</div>
+                    </div>
+
+                    <!-- Sent -->
+                    <div class="msg-row sent">
+                        <div class="msg-bubble sent">
+                            Yes! I have availability on Thursday at 2pm or Friday at 10am.
+                        </div>
+                        <div class="msg-time">10:10 AM</div>
+                    </div>
+
+                    <!-- Received -->
+                    <div class="msg-row received">
+                        <div class="msg-bubble received">
+                            Sounds great! Looking forward to the call.
+                        </div>
+                        <div class="msg-time">10:12 AM</div>
+                    </div>
+
+                </div>
+
+                <!-- Message input bar -->
+                <div class="chat-input-bar">
+                    <input class="chat-input" id="msg-input" type="text" placeholder="Type a message..."
+                           onkeydown="if(event.key==='Enter') sendMessage()">
+                    <button class="send-btn" onclick="sendMessage()">Send</button>
+                </div>
+
+            </div>
+
+        </div>
+    </main>
+
+    <script>
+        // Send message
+        function sendMessage() {
+            const input = document.getElementById('msg-input');
+            const text  = input.value.trim();
+            if (!text) return;
+
+            const area = document.getElementById('messages-area');
+
+            // Create new sent bubble
+            const now = new Date();
+            const time = now.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit' });
+
+            const row = document.createElement('div');
+            row.className = 'msg-row sent';
+            row.innerHTML = `
+                <div class="msg-bubble sent">${text}</div>
+                <div class="msg-time">${time}</div>
+            `;
+            area.appendChild(row);
+
+            area.scrollTop = area.scrollHeight;
+
+            input.value = '';
+        }
+
+        // switch chat
+        const chatData = {
+            alex:  { avatar:'AM', color:'teal',   name:'Alex Morgan',  status:'Online · Entrepreneur' },
+            priya: { avatar:'PK', color:'green',  name:'Priya Kapoor', status:'Away · Investor'        },
+            james: { avatar:'JL', color:'blue',   name:'James Liu',    status:'Offline · Investor'     },
+            sara:  { avatar:'SC', color:'purple', name:'Sara Chen',    status:'Online · Entrepreneur'  },
+        };
+
+        function switchChat(key) {
+            document.querySelectorAll('.contact-row').forEach(r => r.classList.remove('active'));
+            event.currentTarget.classList.add('active');
+
+            const d = chatData[key];
+            const av = document.getElementById('chat-avatar');
+            av.textContent  = d.avatar;
+            av.className    = 'contact-avatar ' + d.color;
+            document.getElementById('chat-name').textContent   = d.name;
+            document.getElementById('chat-status').innerHTML   =
+                (d.status.startsWith('Online')
+                    ? '<span class="online-dot"></span> '
+                    : '<span class="offline-dot"></span> ')
+                + d.status;
+        }
+    </script>
+
+</body>
+</html>

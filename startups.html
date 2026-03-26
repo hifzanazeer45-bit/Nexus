@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Startup - Business Nexus</title>
+    <link rel="icon" href="icon.png">
+    <link rel="stylesheet" href="css/startups.css">
+</head>
+<body>
+    <nav class="navbar">
+        <!-- Logo -->
+        <div class="navbar-logo">
+            <div class="logo-icon">
+                <i class="fa-solid fa-briefcase"></i>
+            </div>
+            <div class="logo-text">Business Nexus</div>
+        </div>
+
+        <!-- Right Side -->
+        <div class="navbar-right">
+            <a href="dashboard.html" class="nav-link"><i class="fa-solid fa-dollar-sign"></i>Dashboard</a>
+            <a href="messages.html" class="nav-link"><i class="fa-solid fa-message"></i>Messages</a>
+            <a href="notification.html" class="nav-link"><i class="fa-solid fa-bell"></i>Notifications</a>
+            <a href="Profile.html" class="nav-link"><i class="fa-solid fa-user"></i>Profile</a>
+            <a href="index.html" class="nav-link"><i class="fa-solid fa-arrow-right-from-bracket"></i>Logout</a>
+
+            <!-- User Profile -->
+            <div class="user-profile">
+                <div class="user-avatar">MR</div>
+                <div class="user-name">Michael Rodriguez</div>
+            </div>
+        </div>
+    </nav>
+
+    <aside class="sidebar">
+        <!-- Main Menu -->
+        <div class="sidebar-section">
+            <div class="sidebar-section-label">Main Menu</div>
+            <a href="dashboard.html" class="sidebar-item"><i class="fa-solid fa-house"></i><span>Dashboard</span></a>
+            <a href="Profile.html" class="sidebar-item"><i class="fa-solid fa-briefcase"></i><span>My Portfole</span></a>
+            <a href="startups.html" class="sidebar-item active"><i class="fa-solid fa-users"></i><span>Find Startups</span></a>
+            <a href="messages.html" class="sidebar-item"><i class="fa-solid fa-message"></i><span>Messages</span></a>
+            <a href="notification.html" class="sidebar-item"><i class="fa-solid fa-bell"></i><span>Notifications</span></a>
+            <a href="deals.html" class="sidebar-item"><i class="fa-solid fa-handshake"></i><span>Deals</span></a>
+            <a href="calendar.html" class="sidebar-item"><i class="fa-solid fa-calendar"></i><span>Calendar</span></a>
+            <a href="documents.html" class="sidebar-item"><i class="fa-solid fa-file"></i><span>Documents</span></a>
+            <a href="video-calling.html" class="sidebar-item"><i class="fa-solid fa-video"></i><span>Video Call</span></a>
+        </div>
+
+         <!-- Account Settings -->
+        <div class="sidebar-section">
+            <div class="sidebar-section-label">Account</div>
+            <a href="Payments.html" class="sidebar-item"><i class="fa-solid fa-credit-card"></i><span>Payments</span></a>
+            <a href="security.html" class="sidebar-item"><i class="fa-solid fa-shield-halved"></i><span>Security</span></a>
+            <a href="settings.html" class="sidebar-item"><i class="fa-solid fa-gear"></i><span>Settings</span></a>
+        </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+
+        <!-- Page Header -->
+        <div class="page-header">
+            <div>
+                <h1 class="page-title">🚀 Find Startups</h1>
+                <p class="page-subtitle">Discover promising entrepreneurs and invest in the future</p>
+            </div>
+        </div>
+
+        <!-- Stats Row -->
+        <div class="stats-row">
+            <div class="stat-card">
+                <div class="stat-icon blue"><i class="fa-solid fa-rocket"></i></div>
+                <div>
+                    <div class="stat-label">Total Startups</div>
+                    <div class="stat-value">24</div>
+                </div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon orange"><i class="fa-solid fa-industry"></i></div>
+                <div>
+                    <div class="stat-label">Industries</div>
+                    <div class="stat-value">8</div>
+                </div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon pink"><i class="fa-solid fa-handshake"></i></div>
+                <div>
+                    <div class="stat-label">Your Connections</div>
+                    <div class="stat-value">3</div>
+                </div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon gold"><i class="fa-solid fa-sack-dollar"></i></div>
+                <div>
+                    <div class="stat-label">Total Funded</div>
+                    <div class="stat-value">$4.2M</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Search & Filter -->
+        <div class="search-row">
+            <div class="search-wrapper">
+                <i class="fa-solid fa-magnifying-glass search-icon"></i>
+                <input class="search-box" type="text" placeholder="Search startups, industries...">
+            </div>
+            <select class="filter-select">
+                <option>All Industries</option>
+                <option>FinTech</option>
+                <option>CleanTech</option>
+                <option>HealthTech</option>
+                <option>EdTech</option>
+            </select>
+        </div>
+
+        <!-- Cards Grid -->
+        <div class="cards-grid">
+
+            <!-- Card 1 -->
+            <div class="startup-card">
+                <div class="card-header">
+                    <div class="avatar blue-av">SJ</div>
+                    <div class="card-title-group">
+                        <div class="startup-name">TechWave</div>
+                        <div class="founder-name">by Sarah Johnson</div>
+                    </div>
+                </div>
+                <div class="card-desc">AI-powered financial planning tool for SMEs. 10K+ users, $48K MRR.</div>
+                <div class="tags">
+                    <span class="tag industry">FinTech</span>
+                    <span class="tag seeking">Seeking $500K</span>
+                </div>
+                <div class="card-actions">
+                    <button class="btn-invest" onclick="showToast('TechWave')">
+                        <i class="fa-solid fa-coins"></i> Invest
+                    </button>
+                    <a href="messages.html" class="btn-message">
+                        <i class="fa-regular fa-comment-dots"></i> Message
+                    </a>
+                    <a href="calendar.html" class="btn-schedule" title="Schedule a meeting">
+                        <i class="fa-regular fa-calendar-check"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Card 2 -->
+            <div class="startup-card">
+                <div class="card-header">
+                    <div class="avatar green-av">MC</div>
+                    <div class="card-title-group">
+                        <div class="startup-name">GreenAI</div>
+                        <div class="founder-name">by Marcus Chen</div>
+                    </div>
+                </div>
+                <div class="card-desc">ML platform reducing industrial carbon emissions by 40%. 3 enterprise clients.</div>
+                <div class="tags">
+                    <span class="tag industry">CleanTech</span>
+                    <span class="tag seeking">Seeking $1M</span>
+                </div>
+                <div class="card-actions">
+                    <button class="btn-invest" onclick="showToast('GreenAI')">
+                        <i class="fa-solid fa-coins"></i> Invest
+                    </button>
+                    <a href="messages.html" class="btn-message">
+                        <i class="fa-regular fa-comment-dots"></i> Message
+                    </a>
+                    <a href="calendar.html" class="btn-schedule" title="Schedule a meeting">
+                        <i class="fa-regular fa-calendar-check"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Card 3 -->
+            <div class="startup-card">
+                <div class="card-header">
+                    <div class="avatar purple-av">PK</div>
+                    <div class="card-title-group">
+                        <div class="startup-name">HealthBridge</div>
+                        <div class="founder-name">by Priya Kapoor</div>
+                    </div>
+                </div>
+                <div class="card-desc">Telemedicine platform connecting rural patients with specialists in 15 minutes.</div>
+                <div class="tags">
+                    <span class="tag industry">HealthTech</span>
+                    <span class="tag seeking">Seeking $300K</span>
+                </div>
+                <div class="card-actions">
+                    <button class="btn-invest" onclick="showToast('HealthBridge')">
+                        <i class="fa-solid fa-coins"></i> Invest
+                    </button>
+                    <a href="messages.html" class="btn-message">
+                        <i class="fa-regular fa-comment-dots"></i> Message
+                    </a>
+                    <a href="calendar.html" class="btn-schedule" title="Schedule a meeting">
+                        <i class="fa-regular fa-calendar-check"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Card 4 -->
+            <div class="startup-card">
+                <div class="card-header">
+                    <div class="avatar coral-av">AR</div>
+                    <div class="card-title-group">
+                        <div class="startup-name">EduSpark</div>
+                        <div class="founder-name">by Aisha Rahman</div>
+                    </div>
+                </div>
+                <div class="card-desc">Adaptive learning platform for K-12 students. 25K learners, 92% retention rate.</div>
+                <div class="tags">
+                    <span class="tag industry">EdTech</span>
+                    <span class="tag seeking">Seeking $750K</span>
+                </div>
+                <div class="card-actions">
+                    <button class="btn-invest" onclick="showToast('EduSpark')">
+                        <i class="fa-solid fa-coins"></i> Invest
+                    </button>
+                    <a href="messages.html" class="btn-message">
+                        <i class="fa-regular fa-comment-dots"></i> Message
+                    </a>
+                    <a href="calendar.html" class="btn-schedule" title="Schedule a meeting">
+                        <i class="fa-regular fa-calendar-check"></i>
+                    </a>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- Toast Notification -->
+    <div id="toast">
+        <i class="fa-solid fa-circle-check"></i>
+        <span id="toast-text">Interest registered! Check Payments to fund.</span>
+    </div>
+
+    <script>
+        let toastTimer;
+        function showToast(name) {
+            const toast = document.getElementById('toast');
+            const text = document.getElementById('toast-text');
+            text.textContent = `Interest registered in ${name}! Check Payments to fund.`;
+            toast.classList.add('show');
+            clearTimeout(toastTimer);
+            toastTimer = setTimeout(() => toast.classList.remove('show'), 3500);
+        }
+    </script>
+
+</body>
+</html>

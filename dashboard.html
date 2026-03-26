@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Business Nexus</title>
+    <link rel="icon" href="icon.png">
+    <link rel="stylesheet" href="css/dashboard.css">
+</head>
+<body>
+    <nav class="navbar">
+        <!-- Logo -->
+        <div class="navbar-logo">
+            <div class="logo-icon">
+                <i class="fa-solid fa-briefcase"></i>
+            </div>
+            <div class="logo-text">Business Nexus</div>
+        </div>
+
+        <!-- Right Side -->
+        <div class="navbar-right">
+            <a href="dashboard.html" class="nav-link"><i class="fa-solid fa-dollar-sign"></i>Dashboard</a>
+            <a href="messages.html" class="nav-link"><i class="fa-solid fa-message"></i>Messages</a>
+            <a href="notification.html" class="nav-link"><i class="fa-solid fa-bell"></i>Notifications</a>
+            <a href="Profile.html" class="nav-link"><i class="fa-solid fa-user"></i>Profile</a>
+            <a href="index.html" class="nav-link"><i class="fa-solid fa-arrow-right-from-bracket"></i>Logout</a>
+
+            <!-- User Profile -->
+            <div class="user-profile">
+                <div class="user-avatar">MR</div>
+                <div class="user-name">Michael Rodriguez</div>
+            </div>
+        </div>
+    </nav>
+
+    <aside class="sidebar">
+        <!-- Main Menu -->
+        <div class="sidebar-section">
+            <div class="sidebar-section-label">Main Menu</div>
+            <a href="dashboard.html" class="sidebar-item active"><i class="fa-solid fa-house"></i><span>Dashboard</span></a>
+            <a href="Profile.html" class="sidebar-item"><i class="fa-solid fa-briefcase"></i><span>My Portfole</span></a>
+            <a href="startups.html" class="sidebar-item"><i class="fa-solid fa-users"></i><span>Find Startups</span></a>
+            <a href="messages.html" class="sidebar-item"><i class="fa-solid fa-message"></i><span>Messages</span></a>
+            <a href="notification.html" class="sidebar-item"><i class="fa-solid fa-bell"></i><span>Notifications</span></a>
+            <a href="deals.html" class="sidebar-item"><i class="fa-solid fa-handshake"></i><span>Deals</span></a>
+            <a href="calendar.html" class="sidebar-item"><i class="fa-solid fa-calendar"></i><span>Calendar</span></a>
+            <a href="documents.html" class="sidebar-item"><i class="fa-solid fa-file"></i><span>Documents</span></a>
+            <a href="video-calling.html" class="sidebar-item"><i class="fa-solid fa-video"></i><span>Video Call</span></a>
+        </div>
+
+         <!-- Account Settings -->
+        <div class="sidebar-section">
+            <div class="sidebar-section-label">Account</div>
+            <a href="Payments.html" class="sidebar-item"><i class="fa-solid fa-credit-card"></i><span>Payments</span></a>
+            <a href="security.html" class="sidebar-item"><i class="fa-solid fa-shield-halved"></i><span>Security</span></a>
+            <a href="settings.html" class="sidebar-item"><i class="fa-solid fa-gear"></i><span>Settings</span></a>
+        </div>
+    </aside>
+
+    <main class="main-content">
+        <!-- Stat Cards -->
+        <div class="stat-grid">
+            <div class="stat-card">
+                <div class="stat-icon-box yellow">💰</div>
+                <div class="stat-body">
+                    <div class="stat-label">Portfolio Value</div>
+                    <div class="stat-value">$2.4M</div>
+                    <div class="stat-trend up">↑ +12.4% this quarter</div>
+                </div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon-box orange">🤝</div>
+                <div class="stat-body">
+                    <div class="stat-label">Active Deals</div>
+                    <div class="stat-value" id="active-deals-count">4</div>
+                    <div class="stat-trend up">↑ +2 this month</div>
+                </div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon-box red">📅</div>
+                <div class="stat-body">
+                    <div class="stat-label">Meetings Booked</div>
+                    <div class="stat-value" id="meetings-count">—</div>
+                    <div class="stat-trend gray" id="pending-count-txt">— pending</div>
+                </div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon-box green">📈</div>
+                <div class="stat-body">
+                    <div class="stat-label">Wallet Balance</div>
+                    <div class="stat-value" id="stat-balance">$247,500</div>
+                    <div class="stat-trend up">↑ +3.1% vs target</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Two-column layout -->
+        <div class="dash-cols">
+
+            <!-- Left side: Meetings + Deals -->
+            <div class="dash-left">
+
+                <!-- Upcoming Meetings -->
+                <div class="card">
+                    <div class="card-header">
+                        <h2>📅 Upcoming Meetings</h2>
+                        <a href="calendar.html" class="btn btn-outline btn-sm">View Calendar</a>
+                    </div>
+                    <div class="card-body">
+                        <!-- Pending alert -->
+                        <div id="pending-alert" class="alert-warning-box" style="display:none">
+                            ⚠️ You have <strong id="pending-num">0</strong> pending meeting request(s).
+                            <a href="calendar.html" style="color:#d97706;font-weight:600;margin-left:6px">Review →</a>
+                        </div>
+                        <div id="meetings-list"></div>
+                    </div>
+                </div>
+
+                <!-- Awaiting Signature -->
+                <div class="card" style="margin-top:20px">
+                    <div class="card-header">
+                        <h2>🤝 Active Deals — Awaiting Signature</h2>
+                        <a href="documents.html" class="btn btn-outline btn-sm">View All</a>
+                    </div>
+                    <div class="card-body" style="padding-top:8px">
+                        <div id="deals-list"></div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Right side: Wallet + Transactions + Quick Actions -->
+            <div class="dash-right">
+
+                <!-- Wallet Card -->
+                <div class="wallet-card">
+                    <div class="wallet-label">Wallet Balance</div>
+                    <div class="wallet-amount" id="wallet-display">$247,500</div>
+                    <div class="wallet-chip">✓ Verified Account</div>
+                    <div class="wallet-btns">
+                        <a href="Payments.html" class="wallet-btn">💳 Payments</a>
+                        <a href="Payments.html" class="wallet-btn">↔ Transfer</a>
+                    </div>
+                </div>
+
+                <!-- Recent Transactions -->
+                <div class="card" style="margin-top:16px">
+                    <div class="card-header">
+                        <h2>Recent Transactions</h2>
+                    </div>
+                    <div id="recent-tx"></div>
+                    <a href="Payments.html" class="view-all-link">View all transactions →</a>
+                </div>
+
+                <!-- Quick Actions -->
+                <div class="card" style="margin-top:16px">
+                    <div class="card-header"><h2>Quick Actions</h2></div>
+                    <div class="card-body">
+                        <div class="quick-grid">
+                            <a href="documents.html" class="quick-btn"><i class="fa-solid fa-file"></i> Documents</a>
+                            <a href="calendar.html"  class="quick-btn"><i class="fa-solid fa-calendar"></i> Calendar</a>
+                            <a href="video-calling.html" class="quick-btn"><i class="fa-solid fa-video"></i> Video Call</a>
+                            <a href="Payments.html"  class="quick-btn"><i class="fa-solid fa-credit-card"></i> Payments</a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </main>
+
+    <!-- Toast -->
+    <div id="toast" class="toast"></div>
+
+    <script src="core.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const meetings = App.meetings;
+            const pending  = meetings.filter(m => m.status === 'pending');
+
+            // Update stat card
+            document.getElementById('meetings-count').textContent = meetings.length;
+            document.getElementById('pending-count-txt').textContent = pending.length + ' pending';
+
+            // pending alert 
+            if (pending.length > 0) {
+                document.getElementById('pending-alert').style.display = 'flex';
+                document.getElementById('pending-num').textContent = pending.length;
+            }
+            renderMeetings();
+
+            // Deals data that is not signed yet
+            const deals = [
+                { id:'d1', initials:'GT', color:'#16a34a', name:'GreenTech Startup',  sub:'Series A · $500,000 · Term Sheet sent',        status:'awaiting' },
+                { id:'d2', initials:'HA', color:'#2563eb', name:'HealthAI Corp',       sub:'Seed Round · $150,000 · NDA pending',           status:'awaiting' },
+                { id:'d3', initials:'EF', color:'#7c3aed', name:'EduFlow Inc',         sub:'Series B · $1.2M · Due diligence complete',     status:'review'   },
+                { id:'d4', initials:'FN', color:'#0891b2', name:'FinNext Ltd',         sub:'Pre-Seed · $75,000 · Contract drafted',         status:'awaiting' },
+            ];
+
+            ocument.getElementById('active-deals-count').textContent = deals.length;
+
+            document.getElementById('deals-list').innerHTML = deals.map(d => `
+                <div class="deal-row">
+                    <div class="deal-logo" style="background:${d.color}">${d.initials}</div>
+                    <div class="deal-info">
+                        <div class="deal-name">${d.name}</div>
+                        <div class="deal-sub">${d.sub}</div>
+                    </div>
+                    <div class="deal-actions">
+                        <span class="deal-badge ${d.status === 'awaiting' ? 'badge-warn' : 'badge-blue'}">
+                            ${d.status === 'awaiting' ? '⏳ Awaiting Sign' : '📋 In Review'}
+                        </span>
+                        <button class="deal-btn" onclick="handleDealBtn('${d.id}','${d.status}','${d.name}')">
+                            ${d.status === 'awaiting' ? '✍️ Sign' : '👁 View'}
+                        </button>
+                    </div>
+                </div>
+            `).join('');
+
+            // Wallet balance from localStorage ─────────────────
+            const savedBal = parseFloat(localStorage.getItem('nexus_balance') || '247500');
+            const balFmt   = '$' + savedBal.toLocaleString('en-US');
+            document.getElementById('wallet-display').textContent = balFmt;
+            document.getElementById('stat-balance').textContent   = balFmt;
+
+            // ── Recent Transactions ───────────────────────────────
+            const txDefault = [
+                { type:'deposit',  amount:50000,  to:'Nexus Wallet',      date:'2026-02-18' },
+                { type:'transfer', amount:25000,  to:'GreenTech Startup',  date:'2026-02-17' },
+                { type:'deposit',  amount:100000, to:'Nexus Wallet',       date:'2026-02-15' },
+                { type:'transfer', amount:15000,  to:'HealthAI Corp',      date:'2026-02-12' },
+            ];
+
+            const txData = JSON.parse(localStorage.getItem('nexus_tx') || 'null') || txDefault;
+            const recent = txData.slice(0, 4);
+
+            document.getElementById('recent-tx').innerHTML = recent.map(t => `
+                <div class="tx-row">
+                    <div class="tx-icon-box ${t.type === 'deposit' ? 'tx-dep' : 'tx-trf'}">
+                        ${t.type === 'deposit' ? '⬇' : '↔'}
+                    </div>
+                    <div class="tx-info">
+                        <div class="tx-name">${cap(t.type)}</div>
+                        <div class="tx-sub">${t.to} · ${t.date}</div>
+                    </div>
+                    <div class="tx-amount ${t.type === 'deposit' ? 'tx-pos' : 'tx-neg'}">
+                        ${t.type === 'deposit' ? '+' : '-'}$${t.amount.toLocaleString()}
+                    </div>
+                </div>
+            `).join('');
+        });
+
+        // Render meetings list
+        function renderMeetings() {
+            const list = document.getElementById('meetings-list');
+            const show = App.meetings.slice(0, 5);
+
+            list.innerHTML = show.map(m => {
+                const parts     = m.date.split('-');
+                const monthName = MONTHS[parseInt(parts[1]) - 1].slice(0,3).toUpperCase();
+                const isPending = m.status === 'pending';
+
+                const right = isPending
+                    ?  `<div class="meeting-actions">
+                            <button class="btn-accept"  onclick="acceptMeeting(${m.id})"><i class="fa-solid fa-check"></i> Accept</button>
+                            <button class="btn-decline" onclick="declineMeeting(${m.id})"><i class="fa-solid fa-xmark"></i> Decline</button>
+                        </div>`
+                    : `<span class="badge-confirmed">✓ Confirmed</span>`;
+                    return `
+                    <div class="meeting-item" id="meeting-row-${m.id}">
+                        <div class="meeting-date-box">
+                            <div class="mday">${parts[2]}</div>
+                            <div class="mmon">${monthName}</div>
+                        </div>
+                        <div style="flex:1;min-width:0">
+                            <div style="font-weight:600;font-size:14px">${m.title}</div>
+                            <div style="font-size:12px;color:#6b7280;margin-top:3px">with ${m.with} · ${m.time}</div>
+                        </div>
+                        ${right}
+                    </div>`;
+            }).join('');
+        };
+
+        // Accept meeting 
+        function acceptMeeting(id) {
+        const m = App.meetings.find(x => x.id === id);
+            if (m) m.status = 'confirmed';
+
+            const row     = document.getElementById('meeting-row-' + id);
+            const actions = row.querySelector('.meeting-actions');
+            if (actions) actions.outerHTML = `<span class="badge-confirmed">✓ Confirmed</span>`;
+
+            // Update pending counter
+            updatePendingAlert();
+            showToast('Meeting accepted!', 'success');
+        }
+
+        // Decline meeting 
+        function declineMeeting(id) {
+            const m = App.meetings.find(x => x.id === id);
+            if (m) m.status = 'declined';
+
+            const row = document.getElementById('meeting-row-' + id);
+            row.style.transition = 'opacity 0.3s, transform 0.3s';
+            row.style.opacity    = '0';
+            row.style.transform  = 'translateX(12px)';
+            setTimeout(() => row.remove(), 300);
+
+            updatePendingAlert();
+            showToast('Meeting declined.', 'decline');
+        }
+    </script>
+</body>
+</html>

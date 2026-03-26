@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Settings - Business Nexus</title>
+    <link rel="icon" href="icon.png">
+    <link rel="stylesheet" href="css/settings.css">
+</head>
+<body>
+    <nav class="navbar">
+        <!-- Logo -->
+        <div class="navbar-logo">
+            <div class="logo-icon">
+                <i class="fa-solid fa-briefcase"></i>
+            </div>
+            <div class="logo-text">Business Nexus</div>
+        </div>
+
+        <!-- Right Side -->
+        <div class="navbar-right">
+            <a href="dashboard.html" class="nav-link"><i class="fa-solid fa-dollar-sign"></i>Dashboard</a>
+            <a href="messages.html" class="nav-link"><i class="fa-solid fa-message"></i>Messages</a>
+            <a href="notification.html" class="nav-link"><i class="fa-solid fa-bell"></i>Notifications</a>
+            <a href="Profile.html" class="nav-link"><i class="fa-solid fa-user"></i>Profile</a>
+            <a href="index.html" class="nav-link"><i class="fa-solid fa-arrow-right-from-bracket"></i>Logout</a>
+
+            <!-- User Profile -->
+            <div class="user-profile">
+                <div class="user-avatar">MR</div>
+                <div class="user-name">Michael Rodriguez</div>
+            </div>
+        </div>
+    </nav>
+
+    <aside class="sidebar">
+        <!-- Main Menu -->
+        <div class="sidebar-section">
+            <div class="sidebar-section-label">Main Menu</div>
+            <a href="dashboard.html" class="sidebar-item"><i class="fa-solid fa-house"></i><span>Dashboard</span></a>
+            <a href="Profile.html" class="sidebar-item"><i class="fa-solid fa-briefcase"></i><span>My Portfole</span></a>
+            <a href="Find-startups.html" class="sidebar-item"><i class="fa-solid fa-users"></i><span>Find Startups</span></a>
+            <a href="messages.html" class="sidebar-item"><i class="fa-solid fa-message"></i><span>Messages</span></a>
+            <a href="notification.html" class="sidebar-item"><i class="fa-solid fa-bell"></i><span>Notifications</span></a>
+            <a href="deals.html" class="sidebar-item"><i class="fa-solid fa-handshake"></i><span>Deals</span></a>
+            <a href="calendar.html" class="sidebar-item"><i class="fa-solid fa-calendar"></i><span>Calendar</span></a>
+            <a href="documents.html" class="sidebar-item"><i class="fa-solid fa-file"></i><span>Documents</span></a>
+            <a href="video-calling.html" class="sidebar-item"><i class="fa-solid fa-video"></i><span>Video Call</span></a>
+        </div>
+
+         <!-- Account Settings -->
+        <div class="sidebar-section">
+            <div class="sidebar-section-label">Account</div>
+            <a href="Payments.html" class="sidebar-item"><i class="fa-solid fa-credit-card"></i><span>Payments</span></a>
+            <a href="security.html" class="sidebar-item"><i class="fa-solid fa-shield-halved"></i><span>Security</span></a>
+            <a href="settings.html" class="sidebar-item active"><i class="fa-solid fa-gear"></i><span>Settings</span></a>
+        </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+
+        <!-- Page Header -->
+        <div class="page-header">
+            <div>
+                <h1 class="page-title"><i class="fa-solid fa-gear"></i> Settings</h1>
+                <p class="page-subtitle">Manage your account preferences</p>
+            </div>
+            <button class="btn-save" onclick="saveSettings()">Save Settings</button>
+        </div>
+
+        <!-- Settings Grid -->
+        <div class="settings-grid">
+
+            <!-- LEFT COLUMN -->
+            <div class="settings-col">
+
+                <!-- Appearance -->
+                <div class="settings-card">
+                    <h2 class="card-section-title">Appearance</h2>
+
+                    <div class="form-group">
+                        <label class="form-label">Language</label>
+                        <div class="select-wrapper">
+                            <select class="form-select">
+                                <option>English</option>
+                                <option>Urdu</option>
+                                <option>French</option>
+                                <option>Arabic</option>
+                            </select>
+                            <i class="fa-solid fa-chevron-down select-arrow"></i>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">Timezone</label>
+                        <div class="select-wrapper">
+                            <select class="form-select">
+                                <option>PKT (UTC+5)</option>
+                                <option>UTC (UTC+0)</option>
+                                <option>EST (UTC-5)</option>
+                                <option>PST (UTC-8)</option>
+                                <option>IST (UTC+5:30)</option>
+                            </select>
+                            <i class="fa-solid fa-chevron-down select-arrow"></i>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">Date Format</label>
+                        <div class="select-wrapper">
+                            <select class="form-select">
+                                <option>DD/MM/YYYY</option>
+                                <option>MM/DD/YYYY</option>
+                                <option>YYYY-MM-DD</option>
+                            </select>
+                            <i class="fa-solid fa-chevron-down select-arrow"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Privacy -->
+                <div class="settings-card">
+                    <h2 class="card-section-title">Privacy</h2>
+
+                    <div class="toggle-row">
+                        <label class="toggle-switch">
+                            <input type="checkbox" checked>
+                            <span class="toggle-slider"></span>
+                        </label>
+                        <span class="toggle-label">Show my profile to investors</span>
+                    </div>
+
+                    <div class="toggle-row">
+                        <label class="toggle-switch">
+                            <input type="checkbox" checked>
+                            <span class="toggle-slider"></span>
+                        </label>
+                        <span class="toggle-label">Allow direct messages from strangers</span>
+                    </div>
+
+                    <div class="toggle-row">
+                        <label class="toggle-switch">
+                            <input type="checkbox">
+                            <span class="toggle-slider"></span>
+                        </label>
+                        <span class="toggle-label">Show my investment activity publicly</span>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- RIGHT COLUMN -->
+            <div class="settings-col">
+
+                <!-- Notifications -->
+                <div class="settings-card">
+                    <h2 class="card-section-title">Notifications</h2>
+
+                    <div class="toggle-row">
+                        <label class="toggle-switch">
+                            <input type="checkbox" checked>
+                            <span class="toggle-slider"></span>
+                        </label>
+                        <span class="toggle-label">Email notifications</span>
+                    </div>
+
+                    <div class="toggle-row">
+                        <label class="toggle-switch">
+                            <input type="checkbox" checked>
+                            <span class="toggle-slider"></span>
+                        </label>
+                        <span class="toggle-label">Meeting reminders (1 hour before)</span>
+                    </div>
+
+                    <div class="toggle-row">
+                        <label class="toggle-switch">
+                            <input type="checkbox" checked>
+                            <span class="toggle-slider"></span>
+                        </label>
+                        <span class="toggle-label">New message alerts</span>
+                    </div>
+
+                    <div class="toggle-row">
+                        <label class="toggle-switch">
+                            <input type="checkbox">
+                            <span class="toggle-slider"></span>
+                        </label>
+                        <span class="toggle-label">Weekly digest email</span>
+                    </div>
+
+                    <div class="toggle-row">
+                        <label class="toggle-switch">
+                            <input type="checkbox" checked>
+                            <span class="toggle-slider"></span>
+                        </label>
+                        <span class="toggle-label">Deal status updates</span>
+                    </div>
+                </div>
+
+                <!-- Danger Zone -->
+                <div class="settings-card danger-card">
+                    <h2 class="card-section-title">Danger Zone</h2>
+
+                    <div class="danger-box">
+                        <div class="danger-box-header">
+                            <span class="danger-title">Delete Account</span>
+                        </div>
+                        <p class="danger-desc">This will permanently delete your account and all data. This cannot be undone.</p>
+                        <button class="btn-delete" onclick="confirmDelete()">
+                            <i class="fa-solid fa-trash"></i> Delete My Account
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </main>
+
+    <!-- Toast -->
+    <div id="toast">
+        <i class="fa-solid fa-circle-check"></i>
+        <span id="toast-text">Settings saved successfully!</span>
+    </div>
+
+    <!-- Delete Confirm Modal -->
+    <div id="modal-overlay" class="modal-overlay" onclick="closeModal()">
+        <div class="modal" onclick="event.stopPropagation()">
+            <div class="modal-icon"><i class="fa-solid fa-triangle-exclamation"></i></div>
+            <h3 class="modal-title">Delete Account?</h3>
+            <p class="modal-desc">This will permanently delete your account and all data. This action cannot be undone.</p>
+            <div class="modal-actions">
+                <button class="modal-btn-cancel" onclick="closeModal()">Cancel</button>
+                <button class="modal-btn-delete"><i class="fa-solid fa-trash"></i> Yes, Delete</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let toastTimer;
+        function showToast(msg, color) {
+            const toast = document.getElementById('toast');
+            document.getElementById('toast-text').textContent = msg;
+            toast.style.background = color || '#16a34a';
+            toast.classList.add('show');
+            clearTimeout(toastTimer);
+            toastTimer = setTimeout(() => toast.classList.remove('show'), 3000);
+        }
+
+        function saveSettings() {
+            showToast('Settings saved successfully!', '#16a34a');
+        }
+
+        function confirmDelete() {
+            document.getElementById('modal-overlay').classList.add('active');
+        }
+
+        function closeModal() {
+            document.getElementById('modal-overlay').classList.remove('active');
+        }
+    </script>
+
+</body>
+</html>

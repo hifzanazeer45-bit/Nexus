@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Video Call - Business Nexus</title>
+    <link rel="icon" href="icon.png">
+    <link rel="stylesheet" href="css/video-calling.css">
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="navbar-logo">
+            <div class="logo-icon"><i class="fa-solid fa-briefcase"></i></div>
+            <div class="logo-text">Business Nexus</div>
+        </div>
+        <div class="navbar-right">
+            <a href="dashboard.html" class="nav-link"><i class="fa-solid fa-dollar-sign"></i>Dashboard</a>
+            <a href="messages.html" class="nav-link"><i class="fa-solid fa-message"></i>Messages</a>
+            <a href="notification.html" class="nav-link"><i class="fa-solid fa-bell"></i>Notifications</a>
+            <a href="Profile.html" class="nav-link"><i class="fa-solid fa-user"></i>Profile</a>
+            <a href="index.html" class="nav-link"><i class="fa-solid fa-arrow-right-from-bracket"></i>Logout</a>
+            <div class="user-profile">
+                <div class="user-avatar">MR</div>
+                <div class="user-name">Michael Rodriguez</div>
+            </div>
+        </div>
+    </nav>
+
+    <aside class="sidebar">
+        <div class="sidebar-section">
+            <div class="sidebar-section-label">Main Menu</div>
+            <a href="dashboard.html" class="sidebar-item"><i class="fa-solid fa-house"></i><span>Dashboard</span></a>
+            <a href="Profile.html" class="sidebar-item"><i class="fa-solid fa-briefcase"></i><span>My Portfole</span></a>
+            <a href="startups.html" class="sidebar-item"><i class="fa-solid fa-users"></i><span>Find Startups</span></a>
+            <a href="messages.html" class="sidebar-item"><i class="fa-solid fa-message"></i><span>Messages</span></a>
+            <a href="notification.html" class="sidebar-item"><i class="fa-solid fa-bell"></i><span>Notifications</span></a>
+            <a href="Deals.html" class="sidebar-item"><i class="fa-solid fa-handshake"></i><span>Deals</span></a>
+            <a href="calendar.html" class="sidebar-item"><i class="fa-solid fa-calendar"></i><span>Calendar</span></a>
+            <a href="documents.html" class="sidebar-item"><i class="fa-solid fa-file"></i><span>Documents</span></a>
+            <a href="video-calling.html" class="sidebar-item active"><i class="fa-solid fa-video"></i><span>Video Call</span></a>
+        </div>
+        <div class="sidebar-section">
+            <div class="sidebar-section-label">Account</div>
+            <a href="Payments.html" class="sidebar-item"><i class="fa-solid fa-credit-card"></i><span>Payments</span></a>
+            <a href="security.html" class="sidebar-item"><i class="fa-solid fa-shield-halved"></i><span>Security</span></a>
+            <a href="settings.html" class="sidebar-item"><i class="fa-solid fa-gear"></i><span>Settings</span></a>
+        </div>
+    </aside>
+
+    <main class="page-content">
+
+        <div id="lobby-view">
+            <!-- Top Left title -->
+            <div class="page-header">
+                <div>
+                    <h1 class="page-title"><i class="fa-solid fa-video"></i> Video Calls</h1>
+                    <p class="page-subtitle">Connect face-to-face with investors and entrepreneurs</p>
+                </div>
+                <button class="btn btn-primary" onclick="startCall()">
+                    <i class="fa-solid fa-video"></i> Start New Call
+                </button>
+            </div>
+
+            <div class="video-grid">
+                <!-- Lift card -->
+                <div class="card">
+                    <div class="card-body lobby">
+                        <!-- Camera icon -->
+                        <div class="lobby-icon"><i class="fa-solid fa-video"></i></div>
+                        <!-- Title + description -->
+                        <h2 class="lobby-title">Start or Join a Meeting</h2>
+                        <p class="lobby-desc">HD video calls with screen sharing, mute controls, and chat for seamless collaboration.</p>
+                        <!-- Two buttons -->
+                        <div class="lobby-buttons">
+                            <button class="btn btn-primary" onclick="startCall()">
+                                <i class="fa-solid fa-video"></i> Start New Call
+                            </button>
+                            <button class="btn btn-outline" onclick="document.getElementById('room-input').focus()">
+                                🔗 Join with Room ID
+                            </button>
+                        </div>
+                        <!-- Divider -->
+                        <hr class="lobby-divider">
+
+                        <!-- Room ID input -->
+                        <div class="join-section">
+                            <label class="join-label">Room ID (to join someone's call)</label>
+                            <div class="join-row">
+                                <input class="join-input" id="room-input" placeholder="e.g. NEXUS-4821"/>
+                                <button class="btn btn-primary" onclick="joinCall()">Join</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Side recent calls -->
+                <div class="card">
+                    <div class="card-header"><h2>Recent Calls</h2></div>
+                    <div class="card-body" id="recent-calls-list"></div>
+                </div>
+            </div>
+
+        </div>
+        
+        <div id="call-view" class="hidden">
+
+            <!-- Status bar -->
+            <div class="call-status-bar">
+                <div class="status-left">
+                    <span class="live-dot"></span>
+                    <span class="status-live-text">Live Call</span>
+                    <span id="call-timer" class="call-timer">00:00</span>
+                </div>
+                <div class="status-right">
+                    <span class="badge badge-success">● HD Quality</span>
+                    <span class="badge badge-gray">2 Participants</span>
+                    <span id="share-tag" class="badge hidden">🖥 Sharing</span>
+                </div>
+            </div>
+
+            <!-- Video area -->
+            <div class="video-card">
+
+                <div class="vid-top">
+                    <!-- LIVE tag pinned top-left -->
+                    <div class="live-tag"><span class="live-dot-sm"></span> LIVE</div>
+                    <div class="vid-center">
+                        <div class="vid-avatar vid-avatar-green">AM</div>
+                        <div class="vid-center-name">Alex Morgan</div>
+                        <span class="speaking-badge">🎤 Speaking</span>
+                    </div>
+                    <div class="vid-name-label">Alex Morgan · Entrepreneur</div>
+                </div>
+
+                <div class="vid-bottom-row">
+                    <div class="vid-small">
+                        <div class="vid-center">
+                            <div class="vid-avatar" style="background:#3b82f6">MR</div>
+                            <div class="vid-center-name">You</div>
+                        </div>
+                        <div class="vid-name-label">You</div>
+                    </div>
+                    <div class="vid-small"></div>
+                </div>
+
+            </div>
+
+            <!-- Control bar -->
+            <div class="call-bar-card">
+                <div class="call-bar">
+                    <div class="call-btn-wrap">
+                        <button class="call-btn" id="btn-mute" onclick="toggleMute()"><i class="fa-solid fa-microphone"></i></button>
+                        <span class="call-btn-label">Mute</span>
+                    </div>
+                    <div class="call-btn-wrap">
+                        <button class="call-btn" id="btn-cam" onclick="toggleCam()"><i class="fa-solid fa-video"></i></button>
+                        <span class="call-btn-label">Camera</span>
+                    </div>
+                    <div class="call-btn-wrap">
+                        <button class="call-btn" id="btn-share" onclick="toggleShare()"><i class="fa-solid fa-display"></i></button>
+                        <span class="call-btn-label">Share</span>
+                    </div>
+                    <div class="call-btn-wrap">
+                        <button class="call-btn"><i class="fa-solid fa-message"></i></button>
+                        <span class="call-btn-label">Chat</span>
+                    </div>
+                    <div class="call-btn-wrap">
+                        <button class="call-btn"><i class="fa-solid fa-users"></i></button>
+                        <span class="call-btn-label">People</span>
+                    </div>
+                    <div class="call-btn-wrap">
+                        <button class="call-btn call-btn-end" onclick="endCall()"><i class="fa-solid fa-phone-slash"></i></button>
+                        <span class="call-btn-label" style="color:#dc2626">End</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </main>
+
+    <div id="toast" class="toast"></div>
+
+    <script src="core.js"></script>
+    <script>
+
+        // Recent calls 
+        document.addEventListener('DOMContentLoaded', () => {
+            renderRecentCalls()
+        });
+
+        function renderRecentCalls(){
+            const calls = [
+                { name:'Alex Morgan',  role:'Entrepreneur', time:'Today, 2:00 PM',      dur:'24 min', init:'AM' },
+                { name:'Priya Kapoor', role:'Investor',     time:'Yesterday, 11:00 AM', dur:'47 min', init:'PK' },
+                { name:'James Liu',    role:'Investor',     time:'Feb 17, 3:00 PM',     dur:'18 min', init:'JL' },
+                { name:'Sara Chen',    role:'Entrepreneur', time:'Feb 15, 10:00 AM',    dur:'35 min', init:'SC' },
+            ];
+            document.getElementById('recent-calls-list').innerHTML = calls.map(c => `
+                <div class="recent-call">
+                    <div class="avatar">${c.init}</div>
+                    <div style="flex:1;min-width:0">
+                        <div style="font-weight:600;font-size:14px">${c.name}</div>
+                        <div style="font-size:12px;color:#9ca3af;margin-top:2px">${c.role} · ${c.time} · ${c.dur}</div>
+                    </div>
+                    <button class="btn recent-call-btn" onclick="startCall()">📞 Call Back</button>
+                </div>
+            `).join('');
+        }
+
+        // Timer 
+        let timerInterval = null, seconds = 0;
+
+        function startTimer() {
+            seconds = 0;
+            timerInterval = setInterval(() => {
+                seconds++;
+                const mm = String(Math.floor(seconds / 60)).padStart(2, '0');
+                const ss = String(seconds % 60).padStart(2, '0');
+                document.getElementById('call-timer').textContent = mm + ':' + ss;
+            }, 1000);
+        }
+
+        function stopTimer() {
+            clearInterval(timerInterval);
+            document.getElementById('call-timer').textContent = '00:00';
+        }
+
+        // Start call 
+        function startCall() {
+            document.getElementById('lobby-view').classList.add('hidden');
+            document.getElementById('call-view').classList.remove('hidden');
+            startTimer();
+        }
+
+        // Join call 
+        function joinCall() {
+            const id = document.getElementById('room-input').value.trim();
+            if (!id) { alert('Please enter a Room ID.'); return; }
+            alert('Joining room: ' + id);
+            startCall(); // Start the call after joining
+        }
+
+        // End call 
+        function endCall() {
+            stopTimer();
+            document.getElementById('call-view').classList.add('hidden');
+            document.getElementById('lobby-view').classList.remove('hidden');
+            resetControls();
+            showToast('Call ended.', 'info');
+        }
+
+        // Toggle mute 
+        let muted = false;
+        function toggleMute() {
+            muted = !muted;
+            const btn = document.getElementById('btn-mute');
+            btn.classList.toggle('call-btn-active', muted);
+            btn.innerHTML = muted ? '<i class="fa-solid fa-microphone-slash"></i>' : '<i class="fa-solid fa-microphone"></i>';
+            showToast(muted ? 'Mic off' : 'Mic on', 'info');
+        }
+
+        // Toggle camera 
+        let camOff = false;
+        function toggleCam() {
+            camOff = !camOff;
+            const btn = document.getElementById('btn-cam');
+            btn.classList.toggle('call-btn-active', camOff);
+            btn.innerHTML = camOff ? '<i class="fa-solid fa-video-slash"></i>' : '<i class="fa-solid fa-video"></i>';
+            showToast(camOff ? 'Camera off' : 'Camera on', 'info');
+        }
+
+        // Toggle share 
+        let sharing = false;
+        function toggleShare() {
+            sharing = !sharing;
+            document.getElementById('btn-share').classList.toggle('call-btn-active', sharing);
+            document.getElementById('share-tag').classList.toggle('hidden', !sharing);
+            showToast(sharing ? 'Screen sharing started' : 'Screen sharing stopped', 'info');
+        }
+
+        // Reset all controls 
+        function resetControls() {
+            muted = false; camOff = false; sharing = false;
+            document.getElementById('btn-mute').classList.remove('call-btn-active');
+            document.getElementById('btn-mute').innerHTML = '<i class="fa-solid fa-microphone"></i>';
+            document.getElementById('btn-cam').classList.remove('call-btn-active');
+            document.getElementById('btn-cam').innerHTML = '<i class="fa-solid fa-video"></i>';
+            document.getElementById('btn-share').classList.remove('call-btn-active');
+            document.getElementById('share-tag').classList.add('hidden');
+        }
+
+        // Toast
+        function showToast(message, type) {
+            const toast = document.getElementById('toast');
+            toast.textContent = message;
+            toast.className = 'toast toast-' + type + ' toast-show';
+            setTimeout(() => toast.classList.remove('toast-show'), 2500);
+        }
+
+    </script>
+</body>
+</html>
