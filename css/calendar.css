@@ -1,0 +1,666 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    background-color: rgb(248, 249, 250);
+}
+
+/* Navbar */
+.navbar {
+    background-color: white;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 24px;
+    border-bottom: 1px solid #e5e7eb;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+}
+
+/* Logo Section */
+.navbar-logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.logo-icon {
+    width: 40px;
+    height: 40px;
+    background-color: #3b82f6;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.logo-text {
+    font-size: 20px;
+    font-weight: 700;
+    color: rgb(31, 41, 55);
+}
+
+ /* Navbar Right Section */
+.navbar-right {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+}
+
+.nav-link {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    text-decoration: none;
+    color: #6b7280;
+    font-size: 14px;
+    font-weight: 500;
+    transition: color 0.2s;
+}
+
+.nav-link:hover {
+    color: rgb(59, 130, 246);
+}
+
+.nav-link i {
+    font-size: 18px;
+}
+
+.user-profile {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    padding: 6px 12px;
+    border-radius: 8px;
+    transition: background 0.2s;
+}
+
+.user-profile:hover {
+    background-color: #f3f4f6;
+}
+
+.user-avatar {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: 600;
+    font-size: 14px;
+}
+
+.user-name {
+    font-size: 14px;
+    font-weight: 600;
+    color: rgb(31, 41, 55);
+}
+
+/* Sidebar */
+.sidebar {
+    position: fixed;
+    left: 0;
+    top: 60px;
+    bottom: 0;
+    width: 240px;
+    background-color: white;
+    border-right: 1px solid #e5e7eb;
+    overflow-y: auto;
+    padding: 20px 0;
+}
+
+/* Sidebar Section */
+.sidebar-section {
+    margin-bottom: 24px;
+}
+
+.sidebar-section-label {
+    padding: 0 20px;
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    color: rgb(156, 163, 175);
+    margin-bottom: 8px;
+    letter-spacing: 0.5px;
+}
+
+/* Sidebar Menu Item */
+.sidebar-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 20px;
+    color: rgb(107, 114, 128);
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+    transition: all 0.2s;
+    cursor: pointer;
+}
+
+.sidebar-item:hover {
+    background-color: rgb(243, 244, 246);
+    color: rgb(59, 130, 246);
+}
+
+.sidebar-item i {
+    font-size: 18px;
+    width: 20px;
+    text-align: center;
+}
+
+.sidebar-item.active {
+    background-color: rgb(239, 246, 255);
+    color: rgb(59, 130, 246);
+    border-right: 3px solid rgb(59, 130, 246);
+}
+
+/* Scrollbar styling */
+.sidebar::-webkit-scrollbar {
+    width: 6px;
+}
+
+.sidebar::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.sidebar::-webkit-scrollbar-thumb {
+    background: #d1d5db;
+    border-radius: 3px;
+}
+
+.sidebar::-webkit-scrollbar-thumb:hover {
+    background: #9ca3af;
+}
+
+/* Main area */
+.page-content {
+    margin-left: 240px;
+    margin-top: 60px;
+    padding: 24px;
+    min-height: calc(100vh - 60px);
+    background-color: #f8f9fa;
+}
+
+.tabs {
+    display: flex;
+    gap: 4px;
+    border-bottom: 2px solid #e5e7eb;
+    margin-bottom: 24px;
+}
+
+.tab-btn {
+    padding: 10px 18px;
+    background: none;
+    border: none;
+    border-bottom: 3px solid transparent;   
+    margin-bottom: -2px;                    
+    color: #6b7280;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    transition: all 0.2s;
+    white-space: nowrap;
+}
+
+.tab-btn:hover {
+    color: #3b82f6;
+    background-color: #f3f4f6;
+    border-radius: 6px 6px 0 0;
+}
+
+.tab-btn.active {
+    color: #3b82f6;
+    border-bottom: 3px solid #3b82f6;      
+    font-weight: 600;
+}
+
+.nav-badge {
+    background: #ef4444;
+    color: white;
+    font-size: 11px;
+    font-weight: 700;
+    padding: 1px 6px;
+    border-radius: 10px;
+    min-width: 18px;
+    text-align: center;
+}
+
+.tab-content {
+    display: none;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+.grid-12 {
+    display: grid;
+    grid-template-rows: 1fr 1.5fr;
+    gap: 20px;
+    align-items: start;  
+}
+
+.card {
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+    overflow: hidden;
+}
+
+.card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 20px;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.grid-12 {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    gap: 20px;
+    align-items: start;
+}
+
+.card-body {
+    padding: 20px;
+}
+
+.card-header h2 {
+    font-size: 15px;
+    font-weight: 700;
+    color: #1f2937;
+}
+
+.cal-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+}
+
+.cal-month-title {
+    font-size: 16px;
+    font-weight: 700;
+    color: #1f2937;
+}
+
+.cal-weekdays {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    margin-bottom: 6px;
+}
+
+.cal-wd {
+    font-size: 12px;
+    font-weight: 600;
+    text-align: center;
+    color: rgb(156, 163, 175);
+    padding: 6px;
+    text-transform: uppercase;
+}
+
+.cal-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 3px;
+}
+
+/* Each day cell */
+.cal-day {
+    aspect-ratio: 1;          
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    font-size: 13px;
+    font-weight: 500;
+    color: #374151;
+    cursor: pointer;
+    position: relative;
+    border: 2px solid transparent;
+    transition: background 0.15s;
+}
+
+.cal-day:hover { 
+    background: rgb(239, 246, 255); 
+    color: rgb(59, 130, 246); 
+}
+
+/* Days from prev/next month — grayed out */
+.cal-day.other-month { 
+    color: #d1d5db; 
+    cursor: default; 
+}
+.cal-day.other-month:hover { 
+    background: none; 
+    color: #d1d5db; 
+}
+
+/* TODAY — light blue background */
+.cal-day.today { 
+    background: rgba(59,130,246,0.12); 
+    color: #3b82f6; font-weight: 700; 
+}
+
+/* SELECTED — solid blue */
+.cal-day.selected { 
+    background: #3b82f6; 
+    color: white; 
+    font-weight: 700; 
+}
+.cal-day.selected:hover { 
+    background: #2563eb; 
+    color: white; 
+}
+
+/* AVAILABLE — green border */
+.cal-day.available { 
+    border-color: #16a34a; 
+    color: #16a34a; 
+    font-weight: 600; 
+}
+.cal-day.available.selected { 
+    background: #3b82f6; 
+    color: white; 
+    border-color: #3b82f6; 
+}
+
+/* HAS MEETING — blue dot below the number */
+.cal-day.has-event::after {
+    content: '';
+    position: absolute;
+    bottom: 4px;
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: #3b82f6;
+}
+.cal-day.selected.has-event::after { 
+    background: white; 
+}
+
+/* Calendar Legend */
+.cal-legend {
+    display: flex;
+    gap: 16px;
+    margin-top: 12px;
+    flex-wrap: wrap;
+}
+
+.cal-legend-item {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 12px;
+    color: #6b7280;
+}
+
+.cal-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    display: inline-block;
+    flex-shrink: 0;
+}
+
+/* Meeting Item — each meeting row in the day panel / tabs */
+.meeting-item {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 14px 0;
+    border-bottom: 1px solid #f3f4f6;
+}
+.meeting-item:last-child { 
+    border-bottom: none; 
+}
+
+/* Blue date box with day number and month */
+.meeting-date-box {
+    background: #eff6ff;
+    border-radius: 8px;
+    width: 52px;
+    height: 52px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+.mday { 
+    font-size: 18px; 
+    font-weight: 800; 
+    color: #3b82f6; 
+    line-height: 1; 
+}
+.mmon { 
+    font-size: 11px; 
+    font-weight: 600; 
+    color: #3b82f6; 
+    text-transform: uppercase; 
+}
+
+/* Buttons */
+.btn {
+    padding: 8px 16px;
+    border-radius: 8px;
+    font-size: 13px;
+    font-weight: 500;
+    cursor: pointer;
+    border: 1px solid transparent;
+    transition: all 0.2s;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    text-decoration: none;
+}
+.btn-sm { 
+    padding: 6px 12px; 
+    font-size: 12px; 
+}
+
+.btn-primary   { 
+    background: #3b82f6; 
+    color: white; 
+    border-color: #3b82f6; 
+}
+.btn-primary:hover { 
+    background: #2563eb; 
+}
+
+.btn-secondary { 
+    background: 
+    white; color: 
+    #374151; 
+    border-color: #d1d5db; 
+}
+.btn-secondary:hover { 
+    background: #f3f4f6; 
+}
+
+.btn-accept  { 
+    background: #16a34a; 
+    color: white; 
+    border-color: #16a34a; 
+}
+.btn-accept:hover  { 
+    background: #15803d; 
+}
+
+.btn-decline { 
+    background: white; 
+    color: #dc2626; 
+    border-color: #dc2626; 
+}
+.btn-decline:hover { 
+    background: #fef2f2; 
+}
+
+.btn-close {
+    background: none;
+    border: none;
+    font-size: 16px;
+    color: #6b7280;
+    cursor: pointer;
+    padding: 4px 8px;
+    border-radius: 4px;
+}
+.btn-close:hover { 
+    background: #f3f4f6; 
+}
+
+/* Badges */
+.badge {
+    padding: 4px 10px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 600;
+    white-space: nowrap;
+}
+.badge-confirmed { 
+    background: #f0fdf4; 
+    color: #16a34a; 
+}
+.badge-pending   { 
+    background: #fffbeb; 
+    color: #d97706; 
+}
+.badge-warning   { 
+    background: #fffbeb; 
+    color: #d97706; 
+}
+
+/* FORM ELEMENTS (inside the modal) */
+.form-group { margin-bottom: 16px; }
+
+.form-label {
+    display: block;
+    font-size: 13px;
+    font-weight: 600;
+    color: #374151;
+    margin-bottom: 6px;
+}
+
+.form-input {
+    width: 100%;
+    padding: 10px 14px;
+    border: 1px solid #d1d5db;
+    border-radius: 8px;
+    font-size: 14px;
+    color: #1f2937;
+    background: white;
+    transition: border-color 0.2s;
+    outline: none;
+}
+.form-input:focus { 
+    border-color: #3b82f6; 
+    box-shadow: 0 0 0 3px rgba(59,130,246,0.1); 
+}
+
+
+/*  MODAL (popup dialog) */
+.modal-overlay {
+    position: fixed;
+    inset: 0;                  
+    background: rgba(0,0,0,0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    opacity: 0;
+    pointer-events: none;      
+    transition: opacity 0.2s;
+}
+
+/* Adding 'open' class makes it visible and clickable */
+.modal-overlay.open {
+    opacity: 1;
+    pointer-events: all;
+}
+
+.modal-box {
+    background: white;
+    border-radius: 16px;
+    width: 100%;
+    max-width: 460px;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.2);
+    transform: translateY(-10px);
+    transition: transform 0.2s;
+}
+.modal-overlay.open .modal-box { 
+    transform: translateY(0); 
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 24px;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.modal-body { 
+    padding: 20px 24px; 
+}
+
+.modal-footer {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    padding: 16px 24px;
+    border-top: 1px solid #e5e7eb;
+}
+
+/* HIDDEN — hides elements */
+.hidden { 
+    display: none !important; 
+}
+
+/* TOAST — popup notification at bottom-right */
+.toast {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    padding: 12px 20px;
+    border-radius: 10px;
+    font-size: 14px;
+    font-weight: 500;
+    color: white;
+    opacity: 0;
+    transform: translateY(8px);
+    transition: all 0.3s;
+    pointer-events: none;
+    z-index: 9999;
+}
+.toast-show    { 
+    opacity: 1; 
+    transform: translateY(0); 
+}
+.toast-success { 
+    background: #16a34a; 
+}
+.toast-error   { 
+    background: #dc2626; 
+}
+.toast-info    { 
+    background: #3b82f6; 
+}
